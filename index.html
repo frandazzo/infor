@@ -9,9 +9,11 @@
 </head>
 <body>
 	
-	<input type="text" name="addendo1" ng-model="quantita">
-	<input type="text" name="addendo2" ng-model="prezzo" >
+	<input type="text" name="addendo1" ng-model="quantita" ng-model-options="{updateOn: 'blur'}">
+	<input type="text" name="addendo2" ng-model="prezzo" 
+	ng-model-options="{updateOn: 'blur'}">
 	<label  class="result">il totale è: {{quantita * prezzo}}</label>
+	<label for="">{{quantita}}</label>
 
 </body>
 </html>

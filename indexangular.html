@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="app"  lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Esempio angular</title>
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/controllers.js"></script>
+
+
+</head>
+<body>
+
+	<div class="sommmatore" ng-controller="utentiController">
+		
+			<input type="text" ng-model="nome">
+			<button ng-click="addPerson()">Aggiungi</button>
+			<button ng-click="sendToServer()">Invia</button>
+
+			<div style="height: 50px; "></div>
+			<ul>
+				<li ng-repeat="item in persone">{{item}}</li>
+			</ul>
+
+
+	</div>
+
+	<div class="sommmatore" ng-controller="prestazioniController">
+		
+			<input type="text" ng-model="persona.nome">
+			<input type="text" ng-model="persona.cognome">
+			<button ng-click="addPerson()">Aggiungi</button>
+
+			<table>
+				<thead>
+
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th></th>
+				</thead>
+				<tbody>
+					
+					<tr  ng-repeat="item in persone" >
+							<td>
+								<label ng-hide="item.modifica">{{item.nome}}</label>
+								<label ng-show="item.modifica"><input type="text" ng-model="copy.nome"></label>
+							</td>
+							<td>
+								
+								<label ng-hide="item.modifica">{{item.cognome}}</label>
+								<label ng-show="item.modifica"><input type="text" ng-model="copy.cognome"></label>
+							</td>
+							<td>
+								<button ng-hide="item.modifica" ng-click="modifica(item)">Modifica</button>
+								<div ng-show="item.modifica">
+									<button ng-click="salva(item)">Salva</button>
+									<button ng-click="annulla(item)">Annulla</button>
+								</div>
+							</td>
+
+						</div>
+						
+					</tr>
+
+
+				</tbody>
+			</table>
+
+
+
+	</div>
+	
+</body>
+</html>

@@ -3,6 +3,8 @@
 
 	var ns = window.infor || {};
 	window.infor = ns;
+
+
 	ns.uiComponents = window.infor.uiComponents  || {};
 
 	ns.uiComponents.sommatore = {};
@@ -32,3 +34,4 @@
 
 
 })();
+
