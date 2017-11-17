@@ -5,17 +5,20 @@
 	<title>Document</title>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="assets/js/mymath.js"></script>
+	<script src="assets/js/uiComponents.js"></script>
+	
+
 </head>
 <body>
-	<input type="number" class="value" id="1"> 
-	<input type="number" class="value" id="2">
+	<input type="number"  id="1"> 
+	<input type="number"  id="2">
 	<label for="" id="result"></label>
 	<script>
-		$(".value").keydown(function(){
+		
+			window.infor.uiComponents.sommatore.init("#result", "#1", "#2")
+		
+		
 
-			$("#result").html(window.infor.myMath.somma($("#1").val(), $("#2").val()));
-			
-		});
 	</script>
 </body>
 

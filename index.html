@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app ng-init="quantita=1;prezzo=4;">
 <head>
 	<meta charset="UTF-8">
 	<title>Esempio angularjs</title>
@@ -8,7 +8,10 @@
 
 </head>
 <body>
-	<p>Ciao a tutti</p>
+	
+	<input type="text" name="addendo1" ng-model="quantita">
+	<input type="text" name="addendo2" ng-model="prezzo" >
+	<label  class="result">il totale è: {{quantita * prezzo}}</label>
 
 </body>
 </html>
