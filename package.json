@@ -1,0 +1,19 @@
+{
+  "name": "infor",
+  "version": "1.0.0",
+  "description": "Ciao questo � il mio primo progetto git!!!!!1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frandazzo/infor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frandazzo/infor/issues"
+  },
+  "homepage": "https://github.com/frandazzo/infor#readme"
+}
