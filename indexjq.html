@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	
+	<script src="assets/js/mymath.js"></script>
 </head>
 <body>
 	<input type="number" class="value" id="1"> 
@@ -13,7 +13,8 @@
 	<script>
 		$(".value").keydown(function(){
 
-			$("#result").html(parseFloat($("#1").val())+parseFloat($("#2").val()));
+			$("#result").html(window.infor.myMath.somma($("#1").val(), $("#2").val()));
+			
 		});
 	</script>
 </body>
