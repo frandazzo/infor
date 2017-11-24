@@ -46,14 +46,6 @@ angular.module('inforMiddleware',[])
 			  return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
 			}
 
-
-
-
-
-
-
-
-
 		var somma = function(a1, a2){
 			executedAlmostOneTime = 'si';
 			var result = parseFloat(a1) + parseFloat(a2);

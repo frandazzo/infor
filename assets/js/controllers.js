@@ -33,9 +33,9 @@ app.controller('prestazioniController',function($scope){
 	$scope.persone = [];
 
 	$scope.persona = {};
-	 $scope.persona.modifica = false;
+	$scope.persona.modifica = false;
 	
-	 $scope.copy={};
+	$scope.copy={};
 	$scope.addPerson = function (){
 			$scope.persone.push($scope.persona);
 			$scope.persona= {};
@@ -58,12 +58,15 @@ app.controller('prestazioniController',function($scope){
 		// item.cognome =$scope.copy.cognome;
 		// item.nome =$scope.copy.nome;
 
-		for (property in $scope.copy) {
-			item[property] = $scope.copy[property];
-		}
-		item.modifica= false;
+		// for (property in $scope.copy) {
+		// 	item[property] = $scope.copy[property];
+		// }
+		// item.modifica= false;
 
-		
+		var indexOfItem = $scope.persone.findIndex(i => i.nome === item.nome && i.cognome === item.cognome);
+		$scope.persone[indexOfItem]=angular.copy($scope.copy);
+		$scope.persone[indexOfItem].modifica = false;
+
 		$scope.copy = {};
 	}
 

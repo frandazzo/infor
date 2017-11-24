@@ -16,17 +16,18 @@ app.controller('historyController', ['$scope','mathService', function($scope, ma
 
 	$scope.history = mathService1.gotResults;
 	//$scope.executedAlmostOneTime = mathService1.executedAlmostOneTime;
-	$scope.$watch(function(){
-		return mathService1.executedAlmostOneTime;
-	},
-		function(newValue, oldValue, scope){
-			console.log('new val: ' +newValue);
-			console.log('old val: ' +oldValue);
+	$scope.$watch(	function(){
+						return mathService1.executedAlmostOneTime;
+					},
+					function(newValue, oldValue, scope){
+						console.log('new val: ' +newValue);
+						console.log('old val: ' +oldValue);
 
-			console.log('scope: ' +scope);
+						console.log('scope: ' +scope);
 
-			$scope.executedAlmostOneTime = newValue;
-		})
+						$scope.executedAlmostOneTime = newValue;
+					}
+	);
 
 	
 
