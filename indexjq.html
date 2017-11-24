@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="sommatore" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="assets/js/mymath.js"></script>
-	<script src="assets/js/uiComponents.js"></script>
-	
-
+	<script src="assets/js/uiComponents.js"></script> -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="assets/js/sommatoreController.js"></script>
+	<script src="assets/js/inforAngularMiddleware.js"></script>
 </head>
 <body>
-	<input type="number"  id="1"> 
-	<input type="number"  id="2">
-	<label for="" id="result"></label>
-	<script>
+	<div ng-controller="sommatoreController">
+		
+		<input type="number" ng-model="addendo1"  > 
+		<input type="number"  ng-model="addendo2" >
+		<label id="result" ng-class="{red : coloredResult}">{{result}}</label>
+		<button ng-click="calcola()">Calcola</button>
+	</div>
+	
+	<div ng-controller="historyController">
+		<h3>Storia   </h3>
+		<h5>Eseguito già una volta? {{executedAlmostOneTime}}</h5>
+			<ul>
+				<li ng-repeat="item in history">{{item}}</li>
+			</ul>	
+	</div>
+	
+
+
+<!-- 	<script>
 		
 			window.infor.uiComponents.sommatore.init("#result", "#1", "#2")
 		
 		
 
-	</script>
+	</script> -->
 </body>
 
 </html>
