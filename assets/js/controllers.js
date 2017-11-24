@@ -1,3 +1,14 @@
+app.controller('bodyController',function($scope){
+
+	$scope.utente = 'ciccillo';
+
+	
+
+
+});
+
+
+
 app.controller('utentiController',function($scope){
 
 	$scope.persone = [];
@@ -28,7 +39,7 @@ app.controller('prestazioniController',function($scope){
 	$scope.addPerson = function (){
 			$scope.persone.push($scope.persona);
 			$scope.persona= {};
-			
+			alert($scope.utente);
 	}
 
 	$scope.modifica = function(item){
@@ -43,9 +54,7 @@ app.controller('prestazioniController',function($scope){
 	}
 
 	$scope.salva = function(item){
-		
-		
-		
+
 		// item.cognome =$scope.copy.cognome;
 		// item.nome =$scope.copy.nome;
 
