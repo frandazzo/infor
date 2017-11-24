@@ -28,18 +28,21 @@ app.controller('utentiController',function($scope){
 
 });
 
-app.controller('prestazioniController',function($scope){
+app.controller('prestazioniController',function($scope, $timeout){
 
+
+	$scope.showConfirm = false;
 	$scope.persone = [];
 
 	$scope.persona = {};
 	$scope.persona.modifica = false;
 	
 	$scope.copy={};
+	$scope.itemToDelete={};
+
 	$scope.addPerson = function (){
 			$scope.persone.push($scope.persona);
 			$scope.persona= {};
-			alert($scope.utente);
 	}
 
 	$scope.modifica = function(item){
@@ -70,6 +73,24 @@ app.controller('prestazioniController',function($scope){
 		$scope.copy = {};
 	}
 
+	$scope.cancella = function(){
+		$timeout(function() {
+			var indexOfItem = $scope.persone.findIndex(i => i.nome === $scope.itemToDelete.nome && i.cognome === $scope.itemToDelete.cognome);
+			$scope.persone.splice(indexOfItem, 1);
+			$scope.showConfirm = false;
+			$scope.itemToDelete = {};
+		}, 3000);
+	}
+
+	$scope.showdialog = function(item){
+		$scope.showConfirm = true;
+		$scope.itemToDelete = item;
+	}
+
+	$scope.hidedialog = function(){
+		$scope.showConfirm = false;
+		$scope.itemToDelete = {};
+	}
 
 
 

@@ -8,3 +8,16 @@
 	border : 1px solid gray;
 	border-radius: 5%;
 }
+
+.dialog1{
+	position: fixed;
+	top:0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: rgba(0,0,0,0.7);
+}
+.content1{
+	margin:0px auto;
+	background-color: #fff;
+}

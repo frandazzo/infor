@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Esempio angular</title>
+	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="bower_components/angular/angular.min.js"></script>
 
 	<script src="assets/js/app.js"></script>
@@ -27,6 +28,15 @@
 	</div>
 
 	<div class="sommmatore" ng-controller="prestazioniController">
+
+
+			<div class="dialog1" ng-show="showConfirm">
+				<div class="content1">
+					<h1>dialog</h1>
+					<button ng-click='cancella()'>SI</button>
+					<button ng-click='hidedialog()'>NO</button>
+				</div>
+			</div>
 		
 			<input type="text" ng-model="persona.nome">
 			<input type="text" ng-model="persona.cognome">
@@ -52,7 +62,11 @@
 								<label ng-show="item.modifica"><input type="text" ng-model="copy.cognome"></label>
 							</td>
 							<td>
-								<button ng-hide="item.modifica" ng-click="modifica(item)">Modifica</button>
+								<div ng-hide="item.modifica">
+									<button ng-click="modifica(item)">Modifica</button>
+								<button ng-click="showdialog(item)">Cancella</button>
+								</div>
+								
 								<div ng-show="item.modifica">
 									<button ng-click="salva(item)">Salva</button>
 									<button ng-click="annulla(item)">Annulla</button>
