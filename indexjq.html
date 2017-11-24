@@ -30,33 +30,94 @@
 	</div>
 
 
-	<div class="formcontext">
-		
-
-		<form>
-		    <div class="form-group">
+	<div class="formcontext"  ng-controller="formController" >
+		<form name="testForm" novalidate ng-submit="submitForm()">
+		    <div class="form-group" ng-class="{validationerror: testForm.$dirty && testForm.mail.$invalid}">
 		        <label for="exampleInputEmail1">Email address</label>
-		        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-		        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		        <input ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" mail name="mail" required type="mail" class="form-control"  placeholder="Enter email"
+		        ng-model="user.mail">
+		        <small ng-show="testForm.$dirty && testForm.mail.$invalid"  id="emailHelp" class="form-text">Campo non valido</small>
 		    </div>
 		    <div class="form-group">
-		        <label for="exampleInputPassword1">Password</label>
-		        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		        <label for="exampleInputPassword1">Nome</label>
+		        <input name="nome" type="text" class="form-control" placeholder="Nome"
+		        ng-model="user.nome">
+		        <!--<small id="emailHelp" class="form-text text-muted">Nome obbligatorio</small>-->
 		    </div>
-		    <div class="form-check">
+<!-- 		    <div class="form-check">
 		        <label class="form-check-label">
 		            <input type="checkbox" class="form-check-input"> Check me out
 		        </label>
-		    </div>
-		    <button type="submit" class="btn btn-primary">Submit</button>
+		    </div> -->
+		    <button type="submit" class="btn btn-primary" ng-disabled="testForm.$invalid">Submit</button>
 		</form>
-
-
-
 	</div>
 
-
-
+	<div class="formcontext"  ng-controller="registerController" >
+		<form name="registerForm" novalidate ng-submit="submitForm()">
+		    <div class="form-group">
+		        <label for="nome">Nome</label>
+		        <input required name="nome" id="nome" type="text" class="form-control" placeholder="Nome"
+		        ng-model="user.nome">
+		        <small id="nomeHelp" class="form-text text-muted" ng-show="registerForm.$dirty && registerForm.nome.$invalid"  id="emailHelp">Nome obbligatorio</small>
+		    </div>
+		    <div class="form-group">
+		        <label for="cognome">Cognome</label>
+		        <input required name="cognome" id="cognome" type="text" class="form-control" placeholder="Cognome"
+		        ng-model="user.cognome">
+		        <small id="cognomeHelp" class="form-text text-muted" ng-show="registerForm.$dirty && registerForm.cognome.$invalid">Cognome obbligatorio</small>
+		    </div>
+		    <div class="form-group" ng-class="{validationerror: testForm.$dirty && testForm.mail.$invalid}">
+		        <label for="exampleInputEmail1">Email address</label>
+		        <input ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" mail name="mail" required type="mail" class="form-control"  placeholder="Enter email"
+		        ng-model="user.mail">
+		        <small ng-show="registerForm.$dirty && registerForm.mail.$invalid"  id="emailHelp" class="form-text">Campo non valido</small>
+		    </div>
+		    <div class="form-group">
+		    	<label >Sesso</label><br>
+		    	<label class="radio-inline"><input required type="radio" name="sesso" ng-model="user.sesso" value="Maschio">Maschio</label>
+				<label class="radio-inline"><input required type="radio" name="sesso" ng-model="user.sesso" value="Femmina">Femmina</label>
+				<label class="radio-inline"><input required type="radio" name="sesso" ng-model="user.sesso" value="altro">Altre preferenze</label>
+		        <small id="sessoHelp" class="form-text text-muted" ng-show="registerForm.$dirty && registerForm.sesso.$invalid">Sesso obbligatorio</small>
+		    </div>
+		    <div class="form-group">
+  				<label for="sel1">Colore preferito:</label>
+  				<select class="form-control" id="colorePref" name="colorePref" ng-options="color.id as color.value group by color.tipocolore for color in colorlist" ng-model="user.colorePref">
+  				</select>
+  				<small id="coloreHelp" class="form-text text-muted" ng-show="registerForm.$dirty && registerForm.colorePref.$invalid">Colore obbligatorio</small>
+			</div>
+		    <div class="form-group">
+  				<label for="sel1">Numer Preferiti:</label>
+  				<select required class="form-control" id="numeriPref" name="numeriPref" ng-options="number for number in numbers" ng-model="user.numberPref">
+  				</select>
+  				<small id="numberHelp" class="form-text text-muted" ng-show="registerForm.$dirty && registerForm.numeriPref.$invalid">Numero obbligatorio</small>
+			</div>
+			<div class="form-group">
+  				<label class="checkbox-inline"><input type="checkbox" ng-model="user.sviluppatore" ng-true-value="'sure'" ng-false-value="'nope'">Sviluppatore</label>
+				<label class="checkbox-inline"><input type="checkbox" ng-model="user.tappezziere" ng-true-value="'sure'" ng-false-value="'nope'">Tappezziere</label>
+				<label class="checkbox-inline"><input type="checkbox"  ng-model="user.consulente" ng-true-value="'sure'" ng-false-value="'nope'">Consulente</label>
+			</div>
+<!-- 		    <div class="form-check">
+		        <label class="form-check-label">
+		            <input type="checkbox" class="form-check-input"> Check me out
+		        </label>
+		    </div> -->
+		    <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid">Submit</button>
+		</form>
+	</div>
+	<div class="formcontext"  ng-controller="formAnagraficaClienteController" >
+		<form name="AnagraficaClienteForm" novalidate ng-submit="submitForm()">
+		  <div class="form-group">
+		  		<label for="RagioneSociale">Ragione Sociale</label>
+		        <input required name="RagioneSociale" id="RagioneSociale" type="text" class="form-control" placeholder="RagioneSociale"
+		        ng-model="cliente.RagioneSociale">
+		       <label for="PIVA">Partita IVA</label>
+		       <input required name="PIVA"  id="PIVA" type="text" class="form-control" placeholder="Partita IVA"  ng-model="cliente.PIVA" ng-maxlength="11" ng-minlength="2">
+		       <small ng-show="AnagraficaClienteForm.$dirty && AnagraficaClienteForm.PIVA.$invalid"  id="PIVAHelp" class="form-text">Campo non valido</small>
+		  </div>
+		    <button type="submit" class="btn btn-primary" ng-disabled="AnagraficaClienteForm.$invalid">Submit</button>
+		</form>
+	</div>
 
 </body>
 

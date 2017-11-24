@@ -21,3 +21,11 @@
 	margin:0px auto;
 	background-color: #fff;
 }
+
+.validationerror > input{
+	border: 1px solid red;
+}
+
+.validationerror > small{
+	color:red;
+}
